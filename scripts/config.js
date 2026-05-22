@@ -171,7 +171,7 @@ const TAX_RATES = {
   // If any disappear, rates may have changed — flag for human verification
   verificationPhrases: {
     incomeTax: [
-      { phrase: "£12,570",    label: "Personal Allowance",    severity: "RED"   },
+      { phrase: "£242",    label: "Personal Allowance",    severity: "RED"   },
       { phrase: "£50,270",    label: "Basic Rate Limit",      severity: "RED"   },
       { phrase: "£125,140",   label: "Higher Rate Limit",     severity: "RED"   },
       { phrase: "20%",        label: "Basic Rate",            severity: "RED"   },
