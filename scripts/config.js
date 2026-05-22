@@ -156,7 +156,7 @@ const TAX_RATES = {
   employerNiThreshold:   9_100,   // Employer NI secondary threshold
 
   // Student Loans
-  plan2Threshold:       27_295,   // Plan 2 — 9% above this
+  plan2Threshold:       29_385,   // Plan 2 — 9% above this
   plan5Threshold:       25_000,   // Plan 5 — 9% above this
   studentLoanRate:       0.09,    // 9% repayment rate
 
@@ -178,11 +178,11 @@ const TAX_RATES = {
       { phrase: "40%",        label: "Higher Rate",           severity: "RED"   },
     ],
     nationalInsurance: [
-      { phrase: "£12,570",    label: "NI Primary Threshold",  severity: "RED"   },
+      { phrase: "£242",       label: "NI Primary Threshold",  severity: "RED"   },
       { phrase: "8%",         label: "NI Main Rate",          severity: "RED"   },
     ],
     studentLoans: [
-      { phrase: "£27,295",    label: "Plan 2 Threshold",      severity: "AMBER" },
+      { phrase: "£29,385",    label: "Plan 2 Threshold",      severity: "AMBER" },
     ],
   },
 };

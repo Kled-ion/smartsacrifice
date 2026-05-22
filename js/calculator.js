@@ -70,7 +70,7 @@ const NI = {
 
 // Plan 2 Student Loan (most common for graduates after 2012)
 const STUDENT_LOAN = {
-  PLAN2_THRESHOLD: 27_295,  // Repay 9% on earnings above this
+  PLAN2_THRESHOLD: 29_385,  // Repay 9% on earnings above this
   PLAN2_RATE:       0.09,
   PLAN5_THRESHOLD: 25_000,  // Plan 5 (newer graduates)
   PLAN5_RATE:       0.09,
