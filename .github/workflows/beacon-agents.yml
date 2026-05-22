@@ -38,8 +38,8 @@ jobs:
     name: "Agent 8 — Hourly Uptime Ping"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run uptime ping
@@ -49,8 +49,8 @@ jobs:
     name: "Agent 1 — Accuracy Watchdog"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run accuracy checks
@@ -60,8 +60,8 @@ jobs:
     name: "Agent 2 — Site Health Monitor"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run health checks
@@ -71,8 +71,8 @@ jobs:
     name: "Agent 3 — SEO Monitor"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run SEO monitor
@@ -82,8 +82,8 @@ jobs:
     name: "Agent 4 — Affiliate Health Monitor"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run affiliate monitor
@@ -93,8 +93,8 @@ jobs:
     name: "Agent 5 — Competitor Monitor"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run competitor monitor
@@ -105,8 +105,8 @@ jobs:
     name: "Agent 6 — Content Freshness Auditor"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run freshness audit
@@ -116,8 +116,8 @@ jobs:
     name: "Agent 7 — Legal Compliance Monitor"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run legal checks
@@ -127,10 +127,10 @@ jobs:
     name: "Agent 9 — Sitemap Generator"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.2.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Generate sitemap
@@ -147,8 +147,8 @@ jobs:
     name: "Agent 10 — Domain Renewal Monitor"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Check domain renewals
@@ -158,8 +158,8 @@ jobs:
     name: "Agent 11 — Broken Link Crawler"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run link crawler
@@ -169,8 +169,8 @@ jobs:
     name: "Agent 12 — Seasonal Content Calendar"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run seasonal calendar
@@ -189,8 +189,8 @@ jobs:
       - agent-12-seasonal
     if: always()
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
       - name: Run weekly digest
