@@ -3,1253 +3,409 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ── SEO ──────────────────────────────────────────────────────────── -->
   <title>Salary Sacrifice Calculator 2026/27 — See Exactly What You Save</title>
   <meta name="description" content="Free UK salary sacrifice pension calculator. Enter your salary and see exactly how much you save on income tax, National Insurance, and student loan repayments. Updated for 2026/27." />
-  <meta name="keywords" content="salary sacrifice calculator, salary sacrifice pension UK, salary sacrifice 2026, pension tax saving calculator, UK pension calculator" />
   <link rel="canonical" href="https://www.smartsacrifice.co.uk/" />
-
-  <!-- ── Open Graph ───────────────────────────────────────────────────── -->
   <meta property="og:title" content="Salary Sacrifice Calculator — See Exactly What You Save" />
   <meta property="og:description" content="Free UK calculator. Enter your salary, see your tax saving instantly." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.smartsacrifice.co.uk/" />
-
-  <!-- ── Schema ───────────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Salary Sacrifice Calculator UK 2026/27",
-    "description": "Calculate exactly how much you save through salary sacrifice pension contributions in the UK. Covers income tax, National Insurance, and student loan repayments.",
-    "url": "https://www.smartsacrifice.co.uk",
-    "applicationCategory": "FinanceApplication",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-    "featureList": [
-      "Income tax saving calculation",
-      "National Insurance saving",
-      "Student loan repayment impact",
-      "Employer NI saving",
-      "Monthly vs annual breakdown"
-    ]
-  }
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Smart Sacrifice Salary Calculator","url":"https://www.smartsacrifice.co.uk","description":"Free UK salary sacrifice pension calculator for the 2026/27 tax year","applicationCategory":"FinanceApplication","operatingSystem":"Web"}
   </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How much do I save through salary sacrifice?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The saving depends on your tax rate. Basic rate taxpayers (earning £12,571–£50,270) save 28% of their contribution through income tax and NI savings. Higher rate taxpayers (£50,271+) save 42%. Someone on £60,000 contributing 5% saves around £900 per year compared to paying from net pay."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is salary sacrifice always better than a personal pension?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For most employees, yes — salary sacrifice reduces your taxable salary so you save income tax AND National Insurance. A personal pension gives you tax relief but not NI savings. The main exception is if salary sacrifice drops your salary below the National Minimum Wage."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does salary sacrifice affect my student loan repayments?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes — because salary sacrifice reduces your official salary, you repay less on your student loan each month. For Plan 2 loans, repayments are 9% of earnings above £27,295. Reducing your salary by £5,000 reduces your annual repayment by £450."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>" />
-
   <style>
-    /* ── Reset ─────────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-
-    /* ── Tokens ────────────────────────────────────────────────────────── */
     :root {
-      --navy:       #1A3A5C;
-      --navy-mid:   #2A5A8C;
-      --navy-light: #3A7ABD;
-      --green:      #1A7A4A;
-      --green-bg:   #E8F5EE;
-      --green-bd:   #B8DECA;
-      --amber:      #D4820A;
-      --amber-bg:   #FEF3DC;
-      --amber-bd:   #F5CE7A;
-      --red:        #B91C1C;
-      --cream:      #F7F5F2;
-      --cream-dark: #EDE9E3;
-      --white:      #FFFFFF;
-      --text:       #1A1A2A;
-      --text-mid:   #4A5568;
-      --text-muted: #718096;
-      --border:     #D4CAB8;
-      --border-lt:  #E8E2D8;
-      --shadow:     0 4px 16px rgba(26,58,92,0.10);
-      --shadow-lg:  0 12px 40px rgba(26,58,92,0.14);
-      --radius:     10px;
-      --radius-lg:  16px;
-      --max-w:      1100px;
-      --font-head:  'Georgia', serif;
-      --font-body:  'Segoe UI', system-ui, -apple-system, sans-serif;
-      --transition: 0.16s ease;
-    }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Nav ───────────────────────────────────────────────────────────── */
-    .nav {
-      background: var(--navy);
-      border-bottom: 3px solid var(--green);
-      padding: 0 24px;
-      position: sticky; top: 0; z-index: 100;
-    }
-
-    .nav-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-family: var(--font-head);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: white;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo-tag {
-      font-family: var(--font-body);
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      background: var(--green);
-      color: white;
-      padding: 2px 7px;
-      border-radius: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      transition: color var(--transition);
-    }
-
-    .nav-links a:hover { color: white; }
-
-    /* ── Hero ──────────────────────────────────────────────────────────── */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      color: white;
-      padding: 56px 24px 48px;
-    }
-
-    .hero-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .hero-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #7DD3A8;
-      margin-bottom: 14px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-head);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      max-width: 680px;
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.78);
-      max-width: 560px;
-      line-height: 1.6;
-    }
-
-    /* ── Layout ────────────────────────────────────────────────────────── */
-    .page-body {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 40px 24px 64px;
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 32px;
-      align-items: start;
-    }
-
-    /* ── Calculator Card ───────────────────────────────────────────────── */
-    .calc-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-    }
-
-    .calc-header {
-      background: var(--navy);
-      padding: 20px 28px;
-    }
-
-    .calc-header h2 {
-      font-family: var(--font-head);
-      font-size: 1.2rem;
-      color: white;
-      margin-bottom: 3px;
-    }
-
-    .calc-header p {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.65);
-    }
-
-    .calc-body { padding: 28px; }
-
-    /* ── Form fields ───────────────────────────────────────────────────── */
-    .field-group {
-      margin-bottom: 20px;
-    }
-
-    .field-label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .field-hint {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    .input-wrap {
-      position: relative;
-    }
-
-    .input-prefix {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-weight: 600;
-      color: var(--text-muted);
-      pointer-events: none;
-      font-size: 0.95rem;
-    }
-
-    .input-suffix {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-weight: 600;
-      color: var(--text-muted);
-      pointer-events: none;
-      font-size: 0.95rem;
-    }
-
-    .field-input {
-      width: 100%;
-      background: var(--cream);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 11px 12px;
-      outline: none;
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
-
-    .field-input.has-prefix  { padding-left: 26px; }
-    .field-input.has-suffix  { padding-right: 32px; }
-
-    .field-input:focus {
-      border-color: var(--navy);
-      box-shadow: 0 0 0 3px rgba(26,58,92,0.10);
-      background: white;
-    }
-
-    .field-input::placeholder { color: var(--text-muted); font-weight: 400; }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    /* Select dropdown */
-    .field-select {
-      width: 100%;
-      background: var(--cream);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 500;
-      padding: 11px 12px;
-      outline: none;
-      cursor: pointer;
-      transition: border-color var(--transition);
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23718096' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 36px;
-    }
-
-    .field-select:focus { border-color: var(--navy); }
-
-    /* ── Range slider ──────────────────────────────────────────────────── */
-    .slider-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .slider {
-      flex: 1;
-      -webkit-appearance: none;
-      height: 6px;
-      border-radius: 3px;
-      background: linear-gradient(to right, var(--navy) 0%, var(--navy) var(--pct, 25%), var(--border) var(--pct, 25%));
-      outline: none;
-      cursor: pointer;
-    }
-
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--navy);
-      border: 3px solid white;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-      cursor: pointer;
-    }
-
-    .slider-value {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--navy);
-      min-width: 44px;
-      text-align: right;
-    }
-
-    /* ── Divider ───────────────────────────────────────────────────────── */
-    .divider {
-      height: 1px;
-      background: var(--border-lt);
-      margin: 24px 0;
-    }
-
-    /* ── Results ───────────────────────────────────────────────────────── */
-    .result-section {
-      display: none;
-    }
-
-    .result-section.visible { display: block; }
-
-    /* Hero saving */
-    .saving-hero {
-      background: linear-gradient(135deg, var(--green) 0%, #2D9A60 100%);
-      border-radius: var(--radius);
-      padding: 24px;
-      color: white;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .saving-hero-label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 6px;
-    }
-
-    .saving-hero-amount {
-      font-family: var(--font-head);
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .saving-hero-sub {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.78);
-    }
-
-    /* Breakdown grid */
-    .breakdown-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .breakdown-item {
-      background: var(--cream);
-      border: 1px solid var(--border-lt);
-      border-radius: var(--radius);
-      padding: 14px;
-      text-align: center;
-    }
-
-    .breakdown-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .breakdown-value {
-      font-family: var(--font-head);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--green);
-    }
-
-    /* Comparison table */
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.875rem;
-      margin-bottom: 20px;
-    }
-
-    .compare-table th {
-      padding: 10px 12px;
-      text-align: right;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      border-bottom: 2px solid var(--border);
-    }
-
-    .compare-table th:first-child { text-align: left; }
-
-    .compare-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border-lt);
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .compare-table td:first-child {
-      text-align: left;
-      color: var(--text-mid);
-      font-weight: 500;
-    }
-
-    .compare-table tr.highlight td {
-      font-weight: 700;
-      color: var(--navy);
-      border-top: 2px solid var(--border);
-      border-bottom: 2px solid var(--border);
-    }
-
-    .compare-table tr.saving-row td {
-      font-weight: 700;
-      color: var(--green);
-      background: var(--green-bg);
-    }
-
-    .compare-table .less { color: var(--red); }
-    .compare-table .more { color: var(--green); }
-
-    /* Insight box */
-    .insight-box {
-      background: var(--amber-bg);
-      border: 1px solid var(--amber-bd);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      font-size: 0.875rem;
-      color: var(--text);
-      line-height: 1.55;
-      margin-bottom: 20px;
-    }
-
-    .insight-box strong { color: var(--amber); }
-
-    /* Effective cost bar */
-    .eff-bar-wrap {
-      margin-bottom: 20px;
-    }
-
-    .eff-bar-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .eff-bar-track {
-      height: 10px;
-      background: var(--border-lt);
-      border-radius: 5px;
-      overflow: hidden;
-    }
-
-    .eff-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--green), var(--navy));
-      border-radius: 5px;
-      transition: width 0.4s ease;
-    }
-
-    /* ── Placeholder ───────────────────────────────────────────────────── */
-    .placeholder {
-      text-align: center;
-      padding: 32px 16px;
-      color: var(--text-muted);
-    }
-
-    .placeholder-icon { font-size: 2.5rem; margin-bottom: 10px; opacity: 0.4; }
-    .placeholder-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
-    .placeholder-sub { font-size: 0.85rem; }
-
-    /* ── Sidebar ───────────────────────────────────────────────────────── */
-    .sidebar { display: flex; flex-direction: column; gap: 20px; }
-
-    .sidebar-card {
-      background: var(--white);
-      border: 1px solid var(--border-lt);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .sidebar-card h3 {
-      font-family: var(--font-head);
-      font-size: 1rem;
-      color: var(--navy);
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border-lt);
-    }
-
-    .provider-card {
-      padding: 14px;
-      border: 1.5px solid var(--border-lt);
-      border-radius: var(--radius);
-      margin-bottom: 10px;
-      transition: border-color var(--transition);
-    }
-
-    .provider-card:last-child { margin-bottom: 0; }
-    .provider-card:hover { border-color: var(--navy); }
-
-    .provider-name {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-
-    .provider-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-      line-height: 1.45;
-    }
-
-    .provider-features {
-      font-size: 0.75rem;
-      color: var(--text-mid);
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 9px 16px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      transition: all var(--transition);
-    }
-
-    .btn-block { display: block; width: 100%; }
-    .btn-navy  { background: var(--navy);  color: white; }
-    .btn-navy:hover { background: var(--navy-mid); }
-    .btn-green { background: var(--green); color: white; }
-    .btn-green:hover { background: #15633C; }
-    .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
-    .btn-outline:hover { border-color: var(--navy); }
-
-    .sponsored-note {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 6px;
-    }
-
-    /* Tip card */
-    .tip-item {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 12px;
-      font-size: 0.85rem;
-    }
-
-    .tip-item:last-child { margin-bottom: 0; }
-    .tip-icon { flex-shrink: 0; font-size: 1rem; }
-    .tip-text { color: var(--text-mid); line-height: 1.5; }
-    .tip-text strong { color: var(--text); }
-
-    /* ── FAQ ───────────────────────────────────────────────────────────── */
-    .faq-section {
-      margin-top: 40px;
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .faq-header {
-      background: var(--navy);
-      padding: 20px 28px;
-      color: white;
-    }
-
-    .faq-header h2 {
-      font-family: var(--font-head);
-      font-size: 1.2rem;
-    }
-
-    .faq-body { padding: 20px 28px; }
-
-    details {
-      border-bottom: 1px solid var(--border-lt);
-      padding: 14px 0;
-    }
-
-    details:last-child { border-bottom: none; }
-
-    summary {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--navy);
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: '+'; font-size: 1.2rem; color: var(--green); }
-    details[open] summary::after { content: '−'; }
-
-    details p {
-      margin-top: 10px;
-      font-size: 0.875rem;
-      color: var(--text-mid);
-      line-height: 1.65;
-    }
-
-    /* ── Trust strip ───────────────────────────────────────────────────── */
-    .trust-strip {
-      background: var(--cream-dark);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 24px;
-    }
-
-    .trust-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px 32px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.8rem;
-      color: var(--text-mid);
-      font-weight: 500;
-    }
-
-    /* ── Footer ────────────────────────────────────────────────────────── */
-    .footer {
-      background: #0F2236;
-      color: rgba(255,255,255,0.65);
-      padding: 32px 24px;
-      margin-top: 48px;
-    }
-
-    .footer-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .footer-legal {
-      font-size: 0.78rem;
-      line-height: 1.6;
-      max-width: 800px;
-    }
-
-    .footer-legal strong { color: rgba(255,255,255,0.8); }
+      --navy: #0f1f3d; --navy-mid: #1a3160; --navy-light: #223d77;
+      --green: #00c48c; --green-dark: #00a677;
+      --white: #ffffff; --off-white: #f8fafc;
+      --grey-100: #f1f5f9; --grey-200: #e2e8f0;
+      --grey-400: #94a3b8; --grey-600: #475569; --grey-800: #1e293b;
+      --amber: #f59e0b; --amber-bg: #fffbeb; --amber-border: #fde68a;
+      --font-head: 'Outfit', sans-serif; --font-body: 'DM Sans', sans-serif;
+      --radius: 12px; --shadow: 0 4px 24px rgba(0,0,0,0.10); --shadow-lg: 0 8px 48px rgba(0,0,0,0.18);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--grey-800); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: var(--navy); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+    .nav-logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo span { color: var(--green); }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a4080 100%); padding: 60px 24px 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,196,140,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .hero-left { padding-top: 24px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,196,140,0.15); border: 1px solid rgba(0,196,140,0.3); color: var(--green); border-radius: 100px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; padding: 4px 12px; margin-bottom: 20px; text-transform: uppercase; }
+    .hero h1 { font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+    .hero h1 span { color: var(--green); }
+    .hero-sub { color: rgba(255,255,255,0.7); font-size: 1rem; margin-bottom: 32px; max-width: 400px; }
+    .hero-examples { display: flex; flex-direction: column; gap: 10px; }
+    .hero-example { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 14px 16px; }
+    .hero-example-num { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: var(--green); }
+    .hero-example-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+    .calc-card { background: var(--white); border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden; }
+    .calc-card-head { background: var(--grey-100); padding: 16px 24px; border-bottom: 1px solid var(--grey-200); }
+    .calc-card-head h2 { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+    .calc-card-head p { font-size: 0.78rem; color: var(--grey-400); margin-top: 2px; }
+    .calc-body { padding: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--grey-600); margin-bottom: 4px; letter-spacing: 0.02em; text-transform: uppercase; }
+    .form-hint { font-size: 0.75rem; color: var(--grey-400); margin-bottom: 6px; }
+    .input-wrap { position: relative; }
+    .input-prefix { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-weight: 700; color: var(--grey-400); font-size: 1rem; pointer-events: none; }
+    .form-input { width: 100%; padding: 12px 14px 12px 30px; border: 2px solid var(--grey-200); border-radius: 10px; font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--grey-800); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    .form-input:focus { border-color: var(--navy-light); box-shadow: 0 0 0 3px rgba(34,61,119,0.1); }
+    .form-input.no-pfx { padding-left: 14px; }
+    .input-suffix { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-weight: 600; color: var(--grey-400); font-size: 0.9rem; pointer-events: none; }
+    .slider-row { display: flex; align-items: center; gap: 12px; }
+    .form-slider { flex: 1; -webkit-appearance: none; height: 6px; border-radius: 3px; background: var(--grey-200); outline: none; cursor: pointer; }
+    .form-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .slider-val { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--navy); min-width: 44px; text-align: right; }
+    .form-select { width: 100%; padding: 12px 14px; border: 2px solid var(--grey-200); border-radius: 10px; font-family: var(--font-body); font-size: 0.95rem; color: var(--grey-800); background: var(--white); outline: none; cursor: pointer; transition: border-color 0.2s; }
+    .form-select:focus { border-color: var(--navy-light); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .results-panel { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 12px; padding: 20px; margin-top: 16px; }
+    .results-placeholder { text-align: center; padding: 16px 0; }
+    .results-placeholder p { color: rgba(255,255,255,0.4); font-size: 0.9rem; }
+    .results-cost-first { text-align: center; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .results-cost-label { font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+    .results-cost-num { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: rgba(255,255,255,0.9); }
+    .results-cost-sub { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+    .results-main { text-align: center; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .results-main-label { font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .results-main-num { font-family: var(--font-head); font-size: 2.8rem; font-weight: 800; color: var(--green); line-height: 1; }
+    .results-main-sub { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 4px; }
+    .results-breakdown { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+    .results-item { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 12px 8px; text-align: center; }
+    .results-item-num { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--white); }
+    .results-item-label { font-size: 0.68rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+    .scotland-note { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 8px; padding: 10px 14px; margin-top: 12px; font-size: 0.78rem; color: #78350f; display: flex; align-items: flex-start; gap: 8px; }
+    .employer-tip { background: rgba(0,196,140,0.08); border: 1px solid rgba(0,196,140,0.2); border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 0.78rem; color: rgba(255,255,255,0.7); display: none; }
+    .employer-tip strong { color: var(--green); }
+
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 700; color: var(--green-dark); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .section-title { font-family: var(--font-head); font-size: 1.9rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .section-sub { color: var(--grey-600); font-size: 0.95rem; max-width: 520px; margin-bottom: 40px; }
+
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .step { background: var(--off-white); border: 1px solid var(--grey-200); border-radius: 16px; padding: 28px; }
+    .step-icon { width: 48px; height: 48px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
+    .step-num { font-size: 0.7rem; font-weight: 800; color: var(--green-dark); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .step h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step p { font-size: 0.88rem; color: var(--grey-600); line-height: 1.6; }
+
+    .partners-section { background: var(--off-white); }
+    .partners-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .partner-card { background: var(--white); border: 1px solid var(--grey-200); border-radius: 16px; padding: 24px; transition: box-shadow 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+    .partner-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .partner-name { font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .partner-fee { font-size: 0.78rem; color: var(--grey-400); margin-bottom: 10px; }
+    .partner-desc { font-size: 0.85rem; color: var(--grey-600); margin-bottom: 16px; line-height: 1.5; flex: 1; }
+    .partner-cta { display: inline-block; background: var(--navy); color: var(--white); padding: 9px 18px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background 0.2s; align-self: flex-start; }
+    .partner-cta:hover { background: var(--navy-light); }
+    .partner-label { font-size: 0.7rem; color: var(--grey-400); margin-top: 10px; }
+    .fca-note { margin-top: 24px; text-align: center; font-size: 0.78rem; color: var(--grey-400); padding: 14px; background: var(--white); border: 1px solid var(--grey-200); border-radius: 10px; }
+
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border: 1px solid var(--grey-200); border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
+    .faq-q { width: 100%; text-align: left; background: var(--white); border: none; cursor: pointer; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--navy); transition: background 0.15s; }
+    .faq-q:hover { background: var(--off-white); }
+    .faq-icon { width: 26px; height: 26px; flex-shrink: 0; background: var(--grey-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--navy); transition: transform 0.25s, background 0.2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--navy); color: var(--white); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--off-white); }
+    .faq-item.open .faq-a { max-height: 320px; }
+    .faq-a-inner { padding: 16px 20px; font-size: 0.88rem; color: var(--grey-600); line-height: 1.75; border-top: 1px solid var(--grey-200); }
+
+    footer { background: var(--grey-800); color: rgba(255,255,255,0.5); padding: 40px 24px 24px; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+    .footer-brand { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .footer-brand span { color: var(--green); }
+    .footer-disc { font-size: 0.75rem; max-width: 500px; line-height: 1.65; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { max-width: 960px; margin: 20px auto 0; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.72rem; }
 
-    /* ── Responsive ─────────────────────────────────────────────────────── */
     @media (max-width: 768px) {
-      .page-body { grid-template-columns: 1fr; }
-      .breakdown-grid { grid-template-columns: 1fr 1fr; }
-      .field-row { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
-
-    @media (max-width: 480px) {
-      .breakdown-grid { grid-template-columns: 1fr; }
-      .saving-hero-amount { font-size: 2.2rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .hero h1 { font-size: 1.9rem; }
+      .steps { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: 1fr; }
+      .results-breakdown { grid-template-columns: repeat(3,1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+      .section-title { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── Navigation ─────────────────────────────────────────────────────── -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo">
-      💰 Smart Sacrifice
-      <span class="logo-tag">Free Tool</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
+<nav>
+  <a href="/" class="nav-logo">💰 Smart<span>Sacrifice</span></a>
+  <div class="nav-links">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#faq">FAQ</a>
+    <a href="about.html">About</a>
   </div>
 </nav>
 
-<!-- ── Hero ───────────────────────────────────────────────────────────── -->
-<div class="hero">
+<section class="hero">
   <div class="hero-inner">
-    <p class="hero-label">Free UK Calculator · 2026/27 Tax Year · Updated May 2026</p>
-    <h1>See Exactly How Much You Save Through Salary Sacrifice</h1>
-    <p class="hero-sub">
-      Enter your salary and pension contribution below. Instantly see your income tax saving,
-      National Insurance saving, and student loan reduction — in pounds, not percentages.
-    </p>
-  </div>
-</div>
+    <div class="hero-left">
+      <div class="hero-badge">✓ 2026/27 HMRC Rates · England, Wales & N. Ireland</div>
+      <h1>See exactly how much you <span>save</span> through salary sacrifice</h1>
+      <p class="hero-sub">Most employees with a workplace pension are leaving hundreds of pounds of tax savings untouched every year. See your number in 30 seconds.</p>
+      <div class="hero-examples">
+        <div class="hero-example">
+          <div class="hero-example-num">£630/yr</div>
+          <div class="hero-example-label">Typical saving — £45k salary, 5% contribution, basic rate taxpayer</div>
+        </div>
+        <div class="hero-example">
+          <div class="hero-example-num">£945/yr</div>
+          <div class="hero-example-label">Typical saving — £45k salary, 5% contribution, with Plan 2 student loan</div>
+        </div>
+      </div>
+    </div>
 
-<!-- ── Trust strip ─────────────────────────────────────────────────────── -->
-<div class="trust-strip">
-  <div class="trust-inner">
-    <div class="trust-item">✓ 2026/27 HMRC rates</div>
-    <div class="trust-item">✓ Includes student loan impact</div>
-    <div class="trust-item">✓ No signup required</div>
-    <div class="trust-item">✓ Independent — not a pension provider</div>
-    <div class="trust-item">✓ Calculations stay on your device</div>
-  </div>
-</div>
-
-<!-- ── Main body ───────────────────────────────────────────────────────── -->
-<div class="page-body">
-
-  <!-- ── Calculator ─────────────────────────────────────────────────── -->
-  <main>
     <div class="calc-card">
-      <div class="calc-header">
+      <div class="calc-card-head">
         <h2>Salary Sacrifice Calculator</h2>
         <p>England, Wales & Northern Ireland · 2026/27 tax year</p>
       </div>
-
       <div class="calc-body">
-
-        <!-- Salary -->
-        <div class="field-group">
-          <label class="field-label" for="salary">Your gross annual salary</label>
-          <span class="field-hint">Before tax. Enter your total salary, not take-home.</span>
+        <div class="form-group">
+          <label class="form-label" for="salary">Your gross annual salary</label>
+          <div class="form-hint">Before any deductions — from your contract or payslip</div>
           <div class="input-wrap">
             <span class="input-prefix">£</span>
-            <input type="number" class="field-input has-prefix" id="salary"
-              placeholder="45,000" min="0" max="500000" step="500"
-              oninput="runCalc()" aria-label="Gross annual salary" />
+            <input class="form-input" type="number" id="salary" placeholder="45,000" min="0" max="500000" />
           </div>
         </div>
-
-        <!-- Contribution -->
-        <div class="field-group">
-          <label class="field-label" for="contrib-slider">
-            Pension contribution —
-            <span id="contrib-display" style="color: var(--navy);">5%</span>
-            of salary
-          </label>
-          <span class="field-hint">
-            The amount you want to put into your pension through salary sacrifice.
-            Most employees start at 3–5%.
-          </span>
-          <div class="slider-wrap">
-            <input type="range" class="slider" id="contrib-slider"
-              min="1" max="40" value="5"
-              oninput="updateSlider(this); runCalc()"
-              aria-label="Pension contribution percentage" />
-            <span class="slider-value" id="contrib-pct">5%</span>
+        <div class="form-group">
+          <label class="form-label" for="contribution">Pension contribution</label>
+          <div class="form-hint">The % of your salary you put into your pension</div>
+          <div class="slider-row">
+            <input class="form-slider" type="range" id="contribution" min="1" max="50" value="5" />
+            <span class="slider-val" id="contributionDisplay">5%</span>
           </div>
         </div>
-
-        <!-- Row: student loan + employer -->
-        <div class="field-row">
-          <div class="field-group" style="margin-bottom:0">
-            <label class="field-label" for="student-loan">Student loan</label>
-            <select class="field-select" id="student-loan" onchange="runCalc()">
-              <option value="none">No student loan</option>
-              <option value="plan2" selected>Plan 2 (post-2012)</option>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="studentLoan">Student loan</label>
+            <select class="form-select" id="studentLoan">
+              <option value="none">No loan</option>
+              <option value="plan2">Plan 2 (post-2012)</option>
               <option value="plan5">Plan 5 (2023+)</option>
             </select>
           </div>
-
-          <div class="field-group" style="margin-bottom:0">
-            <label class="field-label" for="employer-contrib">Employer contribution</label>
+          <div class="form-group">
+            <label class="form-label" for="employerContribution">Employer adds</label>
             <div class="input-wrap">
-              <input type="number" class="field-input has-suffix" id="employer-contrib"
-                placeholder="3" min="0" max="30" step="0.5"
-                value="" oninput="runCalc()"
-                aria-label="Employer pension contribution percentage" />
+              <input class="form-input no-pfx" type="number" id="employerContribution" placeholder="3" min="0" max="50" style="padding-right:30px" />
               <span class="input-suffix">%</span>
             </div>
           </div>
         </div>
 
-        <div class="divider"></div>
-
-        <!-- Results area -->
-        <div class="result-section" id="results">
-
-          <!-- Hero saving -->
-          <div class="saving-hero">
-            <div class="saving-hero-label">You save every year</div>
-            <div class="saving-hero-amount" id="hero-saving">£0</div>
-            <div class="saving-hero-sub" id="hero-sub">compared to paying from net pay</div>
+        <div class="results-panel">
+          <div id="resultsEmpty" class="results-placeholder">
+            <p>💷 Enter your salary above to see your saving</p>
           </div>
-
-          <!-- Breakdown -->
-          <div class="breakdown-grid">
-            <div class="breakdown-item">
-              <div class="breakdown-label">Income Tax Saved</div>
-              <div class="breakdown-value" id="bd-tax">£0</div>
+          <div id="resultsContent" style="display:none">
+            <div class="results-cost-first">
+              <div class="results-cost-label">Real cost to your take-home pay</div>
+              <div class="results-cost-num" id="realCost">—</div>
+              <div class="results-cost-sub">per year — what actually leaves your pocket</div>
             </div>
-            <div class="breakdown-item">
-              <div class="breakdown-label">NI Saved</div>
-              <div class="breakdown-value" id="bd-ni">£0</div>
+            <div class="results-main">
+              <div class="results-main-label">Total tax saving every year</div>
+              <div class="results-main-num" id="totalSaving">£0</div>
+              <div class="results-main-sub">compared to contributing from take-home pay</div>
             </div>
-            <div class="breakdown-item">
-              <div class="breakdown-label">Loan Reduced</div>
-              <div class="breakdown-value" id="bd-loan">—</div>
+            <div class="results-breakdown">
+              <div class="results-item">
+                <div class="results-item-num" id="taxSaving">£0</div>
+                <div class="results-item-label">Income Tax</div>
+              </div>
+              <div class="results-item">
+                <div class="results-item-num" id="niSaving">£0</div>
+                <div class="results-item-label">NI Saved</div>
+              </div>
+              <div class="results-item">
+                <div class="results-item-num" id="loanSaving">—</div>
+                <div class="results-item-label">Loan Reduced</div>
+              </div>
+            </div>
+            <div class="employer-tip" id="employerTip">
+              💡 <strong>Employer NI saving:</strong> <span id="employerNI"></span>/yr — ask HR if they'll pass any of this back as extra pension contribution.
             </div>
           </div>
-
-          <!-- Effective cost bar -->
-          <div class="eff-bar-wrap">
-            <div class="eff-bar-labels">
-              <span>Real cost to your pay packet</span>
-              <span id="eff-cost-label">–</span>
-            </div>
-            <div class="eff-bar-track">
-              <div class="eff-bar-fill" id="eff-bar" style="width: 0%"></div>
-            </div>
-            <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;" id="eff-cost-sub"></div>
-          </div>
-
-          <!-- Comparison table -->
-          <table class="compare-table" id="compare-table">
-            <thead>
-              <tr>
-                <th style="text-align:left">What changes</th>
-                <th>Without sacrifice</th>
-                <th>With sacrifice</th>
-                <th>Difference</th>
-              </tr>
-            </thead>
-            <tbody id="compare-body"></tbody>
-          </table>
-
-          <!-- Insight -->
-          <div class="insight-box" id="insight-box"></div>
-
-          <!-- Employer NI note -->
-          <div id="employer-ni-note" style="display:none; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 16px; padding: 10px 14px; background: var(--cream); border-radius: var(--radius); border: 1px solid var(--border-lt);">
-            💡 <strong>Employer NI saving:</strong>
-            <span id="employer-ni-amount"></span> —
-            your employer saves this on their NI bill too. Ask if they'll pass any of it back to you as additional pension contribution.
-          </div>
-
         </div>
 
-        <!-- Placeholder -->
-        <div class="placeholder" id="placeholder">
-          <div class="placeholder-icon">💷</div>
-          <div class="placeholder-title">Enter your salary above</div>
-          <div class="placeholder-sub">Your personalised saving appears here instantly</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- How it works -->
-    <div id="how-it-works" style="margin-top: 32px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 28px;">
-      <h2 style="font-family: var(--font-head); font-size: 1.3rem; color: var(--navy); margin-bottom: 20px;">How salary sacrifice actually works</h2>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div style="padding: 20px; background: var(--cream); border-radius: var(--radius); border: 1px solid var(--border-lt);">
-          <div style="font-weight: 700; font-size: 0.85rem; color: var(--red); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Without Salary Sacrifice</div>
-          <p style="font-size: 0.875rem; color: var(--text-mid); line-height: 1.6;">
-            You earn £50,000. You pay income tax and National Insurance on the full amount.
-            Then you put some of what's left into your pension. HMRC adds basic rate tax
-            relief — but you still lose the NI.
-          </p>
-        </div>
-        <div style="padding: 20px; background: var(--green-bg); border-radius: var(--radius); border: 1px solid var(--green-bd);">
-          <div style="font-weight: 700; font-size: 0.85rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">With Salary Sacrifice</div>
-          <p style="font-size: 0.875rem; color: var(--text-mid); line-height: 1.6;">
-            Your employer agrees to pay you £45,000 and put £5,000 directly into your pension.
-            You officially never earned the £5,000 — so you never pay tax <em>or</em> NI on it.
-            That's the extra saving.
-          </p>
+        <div class="scotland-note">
+          ⚠️ <span><strong>Scotland:</strong> Scottish income tax rates differ — this calculator uses England, Wales & Northern Ireland rates only. Scottish taxpayers should verify their personal saving using HMRC's Scottish income tax guidance.</span>
         </div>
       </div>
-    </div>
-
-    <!-- FAQ -->
-    <div class="faq-section" id="faq">
-      <div class="faq-header">
-        <h2>Frequently Asked Questions</h2>
-      </div>
-      <div class="faq-body">
-
-        <details>
-          <summary>How much does the typical person save?</summary>
-          <p>It depends on your tax rate. Basic rate taxpayers (£12,571–£50,270) save approximately 28p for every £1 contributed — 20p in income tax and 8p in National Insurance. Higher rate taxpayers (above £50,270) save approximately 42p per £1 — 40p in income tax and 2p in NI.</p>
-          <p style="margin-top: 8px;">Someone earning £45,000 contributing 5% (£2,250/year) saves around £630 per year through salary sacrifice compared to making the same contribution from take-home pay.</p>
-        </details>
-
-        <details>
-          <summary>Is salary sacrifice always better than a personal pension?</summary>
-          <p>For most employees, yes. A personal pension contribution gets income tax relief added automatically, but you still paid NI on the money before it went in. Salary sacrifice avoids both tax and NI, making it more efficient in nearly every case.</p>
-          <p style="margin-top: 8px;">The one exception: if salary sacrifice would push your salary below the National Minimum Wage, your employer cannot legally offer it. This mainly affects lower earners working part-time.</p>
-        </details>
-
-        <details>
-          <summary>Does salary sacrifice affect my student loan repayments?</summary>
-          <p>Yes — and this is often overlooked. Student loan repayments are calculated on your "pensionable pay" which is reduced when you salary sacrifice. For Plan 2 loans, you repay 9% of everything above £27,295. Reducing your salary by £3,000 reduces your annual repayment by £270.</p>
-          <p style="margin-top: 8px;">This is included in our calculator — tick the student loan option above to see the full picture.</p>
-        </details>
-
-        <details>
-          <summary>Does salary sacrifice affect my mortgage borrowing power?</summary>
-          <p>Potentially, yes. Most lenders base mortgage affordability on your gross salary. If your official salary is reduced through sacrifice, some lenders may offer a smaller mortgage. However, many lenders — particularly those experienced with public sector workers — understand salary sacrifice and will use your pre-sacrifice salary for affordability calculations. Always tell your mortgage broker if you have a salary sacrifice arrangement.</p>
-        </details>
-
-        <details>
-          <summary>Can I change my salary sacrifice amount?</summary>
-          <p>Usually yes, but there are rules. Most employers allow changes at specific points — often annually, or at life events such as changing jobs, marriage, or having a child. The exact rules depend on your employer's scheme. Check your employee handbook or ask HR.</p>
-        </details>
-
-        <details>
-          <summary>What about the employer's NI saving?</summary>
-          <p>When you sacrifice salary, your employer also saves National Insurance — currently 13.8% on the sacrificed amount. Some employers pass this saving back to employees as an additional pension contribution. It's worth asking, as it can meaningfully increase your pension without costing either party extra. Our calculator shows the employer's NI saving so you know what to ask for.</p>
-        </details>
-
-        <details>
-          <summary>Is this tool regulated financial advice?</summary>
-          <p>No. This calculator provides information to help you understand how salary sacrifice works — it is not personalised financial advice. The calculations are based on published HMRC rates for 2026/27 and apply to England, Wales, and Northern Ireland only (Scottish income tax rates differ). Always speak to an Independent Financial Adviser before making significant pension decisions.</p>
-        </details>
-
-      </div>
-    </div>
-  </main>
-
-  <!-- ── Sidebar ─────────────────────────────────────────────────────── -->
-  <aside class="sidebar">
-
-    <!-- Pension providers -->
-    <div class="sidebar-card">
-      <h3>Start your pension</h3>
-
-      <div class="provider-card">
-        <div class="provider-name">PensionBee</div>
-        <div class="provider-desc">Combine and manage all your old pensions in one place. Simple, transparent fees.</div>
-        <div class="provider-features">✓ From 0.50%/yr &nbsp;·&nbsp; ✓ FCA regulated &nbsp;·&nbsp; ✓ App-based</div>
-        <a href="https://www.pensionbee.com/" target="_blank" rel="noopener sponsored"
-          class="btn btn-green btn-block">Get started free →</a>
-        <p class="sponsored-note">Sponsored · We may earn a commission</p>
-      </div>
-
-      <div class="provider-card">
-        <div class="provider-name">Nutmeg</div>
-        <div class="provider-desc">Online investment platform including pensions, ISAs and LISAs. Portfolio managed for you.</div>
-        <div class="provider-features">✓ From 0.25%/yr &nbsp;·&nbsp; ✓ FCA regulated &nbsp;·&nbsp; ✓ ISAs too</div>
-        <a href="https://www.nutmeg.com/" target="_blank" rel="noopener sponsored"
-          class="btn btn-navy btn-block">Compare plans →</a>
-        <p class="sponsored-note">Sponsored · We may earn a commission</p>
-      </div>
-
-      <div class="provider-card">
-        <div class="provider-name">Vanguard UK</div>
-        <div class="provider-desc">Low-cost index fund investing. One of the cheapest SIPP providers available.</div>
-        <div class="provider-features">✓ From 0.15%/yr &nbsp;·&nbsp; ✓ FCA regulated &nbsp;·&nbsp; ✓ Index funds</div>
-        <a href="https://www.vanguardinvestor.co.uk/" target="_blank" rel="noopener sponsored"
-          class="btn btn-outline btn-block">Learn more →</a>
-        <p class="sponsored-note">Sponsored · We may earn a commission</p>
-      </div>
-
-      <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 10px; line-height: 1.5;">
-        Capital at risk. Past performance is not a reliable indicator of future results.
-        We are not FCA-authorised and do not provide financial advice.
-        Always read the provider's Key Investor Information Document before investing.
-      </p>
-    </div>
-
-    <!-- Tips -->
-    <div class="sidebar-card">
-      <h3>Quick tips</h3>
-
-      <div class="tip-item">
-        <span class="tip-icon">💡</span>
-        <div class="tip-text"><strong>Ask about employer NI.</strong> Your employer saves NI on sacrificed salary — ask if they'll add it to your pension.</div>
-      </div>
-
-      <div class="tip-item">
-        <span class="tip-icon">📊</span>
-        <div class="tip-text"><strong>Higher rate taxpayer?</strong> You save 42p per £1 contributed — the higher your tax rate, the more powerful sacrifice becomes.</div>
-      </div>
-
-      <div class="tip-item">
-        <span class="tip-icon">🎓</span>
-        <div class="tip-text"><strong>Student loan?</strong> Sacrifice reduces your repayments too — our calculator shows the full saving including loan.</div>
-      </div>
-
-      <div class="tip-item">
-        <span class="tip-icon">🏠</span>
-        <div class="tip-text"><strong>Mortgage soon?</strong> Tell your broker about salary sacrifice arrangements — most lenders will use your pre-sacrifice salary.</div>
-      </div>
-    </div>
-
-    <!-- Disclaimer -->
-    <div class="sidebar-card" style="border-top: 3px solid var(--amber);">
-      <h3>Important</h3>
-      <p style="font-size: 0.82rem; color: var(--text-mid); line-height: 1.55;">
-        This tool covers England, Wales and Northern Ireland only.
-        Scottish income tax rates are different.
-        <br><br>
-        Figures are for the 2026/27 tax year based on published HMRC rates.
-        Always verify with your employer's HR team and consider speaking
-        to an <a href="https://www.unbiased.co.uk/" target="_blank" rel="noopener" style="color: var(--navy); font-weight: 600;">Independent Financial Adviser</a> before making changes.
-      </p>
-    </div>
-
-  </aside>
-
-</div>
-
-<!-- ── Footer ──────────────────────────────────────────────────────────── -->
-<footer class="footer">
-  <div class="footer-inner">
-    <p style="font-size: 1rem; font-weight: 700; color: white; margin-bottom: 10px;">💰 Smart Sacrifice</p>
-    <div class="footer-legal">
-      <strong>Disclaimer:</strong> Smart Sacrifice provides general information only and does not constitute regulated financial advice. Tax calculations are based on HMRC 2026/27 rates for England, Wales and Northern Ireland. Figures are estimates — your actual savings may differ based on your specific circumstances, pension scheme rules, and employer arrangements. We are not FCA-authorised. Always consult an Independent Financial Adviser before making pension decisions. Capital at risk with any investment. Some links on this site are affiliate links — we may earn a commission when you use them, at no extra cost to you.
-      <br><br>
-      © 2026 Smart Sacrifice · smartsacrifice.co.uk · <a href="about.html" style="color: rgba(255,255,255,0.6);">About & Disclosure</a> · <a href="privacy.html" style="color: rgba(255,255,255,0.6);">Privacy Policy</a>
     </div>
   </div>
+</section>
+
+<section class="section" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">Three words: you never earned it</h2>
+    <p class="section-sub">Salary sacrifice sounds complicated. It isn't.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">🤝</div>
+        <div class="step-num">Step 01</div>
+        <h3>You agree an arrangement</h3>
+        <p>You ask your employer to reduce your official salary and pay the difference directly into your pension. Your employer must agree — most do because they save money too.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">🚫</div>
+        <div class="step-num">Step 02</div>
+        <h3>You officially never earn it</h3>
+        <p>Because the pension contribution comes before payroll, HMRC never sees that money as income. You pay no income tax and no National Insurance on it — as if it never existed.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">📈</div>
+        <div class="step-num">Step 03</div>
+        <h3>Your pension grows, sheltered</h3>
+        <p>The money sits in your pension, invested and growing — sheltered from income tax and NI. If you have a student loan, your repayments reduce too. Our calculator shows the full picture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section partners-section">
+  <div class="section-inner">
+    <div class="section-label">Where to put the money</div>
+    <h2 class="section-title">Open or consolidate your pension</h2>
+    <p class="section-sub">We're not owned by any of these providers. We include them because our readers ask where to start.</p>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-name">PensionBee</div>
+        <div class="partner-fee">From 0.50%/yr · FCA regulated</div>
+        <div class="partner-desc">Consolidate old pensions into one place. App-based management, simple transparent fees. Popular with people who've had several jobs.</div>
+        <a href="https://www.pensionbee.com/" class="partner-cta">Get started free →</a>
+        <div class="partner-label">Sponsored · We may earn a commission · Capital at risk</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Nutmeg</div>
+        <div class="partner-fee">From 0.25%/yr · FCA regulated</div>
+        <div class="partner-desc">Managed investment portfolios covering pensions, ISAs and LISAs. Choose from fully managed, fixed allocation, or socially responsible options.</div>
+        <a href="https://www.nutmeg.com/" class="partner-cta">Compare plans →</a>
+        <div class="partner-label">Sponsored · We may earn a commission · Capital at risk</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Vanguard UK</div>
+        <div class="partner-fee">From 0.15%/yr · FCA regulated</div>
+        <div class="partner-desc">Low-cost index fund investing. One of the cheapest SIPP providers in the UK. Best suited to those comfortable choosing their own funds.</div>
+        <a href="https://www.vanguardinvestor.co.uk/" class="partner-cta">Learn more →</a>
+        <div class="partner-label">Sponsored · We may earn a commission · Capital at risk</div>
+      </div>
+    </div>
+    <div class="fca-note">Capital at risk. Past performance does not guarantee future results. We are not FCA-authorised and do not provide regulated financial advice. Always read the Key Investor Information Document before investing.</div>
+  </div>
+</section>
+
+<section class="section" id="faq" style="background:var(--off-white)">
+  <div class="section-inner">
+    <div class="section-label">Common questions</div>
+    <h2 class="section-title">Frequently asked</h2>
+    <p class="section-sub" style="margin-bottom:32px">The questions we get asked most — click any to expand.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">How much does the typical person save? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">It depends on your tax band. Basic rate taxpayers (£12,571–£50,270) save approximately 28p for every £1 contributed — 20p in income tax and 8p in National Insurance. Someone earning £45,000 and contributing 5% (£2,250/year) saves around £630 per year. Higher rate taxpayers (above £50,270) save approximately 42p per £1 — the higher your income, the more powerful salary sacrifice becomes.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is salary sacrifice better than a personal pension? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">For most employees, yes. A personal pension contribution gets income tax relief added by HMRC, but you still paid National Insurance on the money before it went in. Salary sacrifice avoids both income tax and NI, making it more efficient in nearly every case. The one exception: if sacrifice would push your salary below the National Living Wage, your employer cannot legally offer it. This mainly affects lower earners or part-time workers.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does salary sacrifice affect my student loan repayments? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — and this saving is often overlooked. Student loan repayments are calculated on your pensionable pay, which is reduced when you salary sacrifice. For Plan 2 loans (most people who started university 2012–2023), you repay 9% of earnings above £29,385 in 2026/27. Sacrificing £3,000 reduces your annual student loan repayment by £270. This calculator includes that saving — tick the student loan option to see your full picture.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does salary sacrifice affect my mortgage? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Potentially. Most mortgage lenders base affordability on your gross salary — if salary sacrifice reduces that figure, some lenders may offer a smaller mortgage. However, many lenders — particularly those experienced with public sector workers — understand salary sacrifice and will use your pre-sacrifice salary for affordability calculations. Always disclose any salary sacrifice arrangement to your mortgage broker before applying.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I change my contribution amount? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Usually yes, but with rules. Most employers allow changes at specific points — typically annually during open enrolment, or on a life event such as changing jobs, getting married, or having a child. Some employers are more flexible. The exact rules depend on your employer's scheme rules. Check your employee handbook or ask your HR or payroll team.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What about the employer's National Insurance saving? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">When you salary sacrifice, your employer also saves National Insurance — currently 13.8% of the sacrificed amount. On a £2,250 sacrifice, that's £310 the employer keeps. Some employers pass this saving back to employees as an additional pension contribution, which is an excellent deal for both parties. It costs the employer nothing extra and meaningfully boosts your pension. Ask HR whether your employer operates such a scheme — many do, but won't advertise it.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is this tool regulated financial advice? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. This calculator provides general information based on published HMRC rates for 2026/27. It applies to England, Wales, and Northern Ireland only — Scottish income tax rates are different and this calculator does not reflect them. The figures are estimates based on standard calculations and your actual saving may differ depending on your employer's pension scheme rules and personal circumstances. Always speak to an Independent Financial Adviser before making significant pension decisions. You can find one at <a href="https://www.unbiased.co.uk" style="color:var(--navy)">unbiased.co.uk</a>.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">💰 Smart<span>Sacrifice</span></div>
+      <p class="footer-disc">General information only. Not regulated financial advice. Not FCA-authorised. Tax calculations are based on HMRC 2026/27 rates for England, Wales and Northern Ireland. Scottish income tax rates differ. Figures are estimates — your actual saving may vary. Always consult an Independent Financial Adviser before making pension decisions. Capital at risk with any investment.</p>
+      <div class="footer-links">
+        <a href="about.html">About & Disclosure</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://www.unbiased.co.uk/">Find an IFA</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Smart Sacrifice · smartsacrifice.co.uk · Some links are affiliate links — we may earn a commission at no cost to you</div>
 </footer>
 
-<script src="js/calculator.js"></script>
 <script>
-  // ── Slider update ────────────────────────────────────────────────────
-  function updateSlider(el) {
-    const pct = el.value;
-    document.getElementById("contrib-display").textContent = pct + "%";
-    document.getElementById("contrib-pct").textContent     = pct + "%";
-    // Update track fill
-    const min = el.min, max = el.max;
-    const trackPct = ((pct - min) / (max - min)) * 100;
-    el.style.setProperty("--pct", trackPct + "%");
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Slider display
+  const slider = document.getElementById('contribution');
+  const display = document.getElementById('contributionDisplay');
+  if (slider && display) {
+    slider.addEventListener('input', () => { display.textContent = slider.value + '%'; });
   }
 
-  // Initialise slider
-  updateSlider(document.getElementById("contrib-slider"));
-
-  // ── Main calculator runner ──────────────────────────────────────────
-  function runCalc() {
-    const salary       = parseFloat(document.getElementById("salary").value) || 0;
-    const contribPct   = parseFloat(document.getElementById("contrib-slider").value) || 5;
-    const studentLoan  = document.getElementById("student-loan").value;
-    const employerPct  = parseFloat(document.getElementById("employer-contrib").value) || 0;
-
-    const placeholder = document.getElementById("placeholder");
-    const results     = document.getElementById("results");
-
-    if (!salary || salary < 5000) {
-      results.classList.remove("visible");
-      placeholder.style.display = "block";
-      return;
-    }
-
-    const r = calcSalarySacrifice({
-      grossSalary:    salary,
-      contributionPct: contribPct,
-      studentLoanPlan: studentLoan,
-      employerPct,
+  // Show/hide results when salary is entered
+  const salaryInput = document.getElementById('salary');
+  if (salaryInput) {
+    salaryInput.addEventListener('input', () => {
+      const hasVal = salaryInput.value && parseFloat(salaryInput.value) > 0;
+      document.getElementById('resultsEmpty').style.display = hasVal ? 'none' : 'block';
+      document.getElementById('resultsContent').style.display = hasVal ? 'block' : 'none';
     });
-
-    if (!r) { return; }
-
-    placeholder.style.display = "none";
-    results.classList.add("visible");
-
-    // ── Hero saving ────────────────────────────────────────────────────
-    document.getElementById("hero-saving").textContent = fmtGBP(r.savings.total);
-    document.getElementById("hero-sub").textContent =
-      `${fmtGBP(r.savings.monthly)}/month — real saving vs paying from net pay`;
-
-    // ── Breakdown ──────────────────────────────────────────────────────
-    document.getElementById("bd-tax").textContent  = fmtGBP(r.savings.incomeTax);
-    document.getElementById("bd-ni").textContent   = fmtGBP(r.savings.nationalInsurance);
-    document.getElementById("bd-loan").textContent = r.savings.studentLoan > 0
-      ? fmtGBP(r.savings.studentLoan) : "—";
-
-    // ── Effective cost bar ─────────────────────────────────────────────
-    document.getElementById("eff-cost-label").textContent =
-      `${fmtGBP(r.effectiveCost)}/yr (${r.effectiveCostPct}% of contribution)`;
-    document.getElementById("eff-cost-sub").textContent =
-      `To put ${fmtGBP(r.sacrificeAmount)} into your pension, your take-home only reduces by ${fmtGBP(r.effectiveCost)}.`;
-    document.getElementById("eff-bar").style.width = r.effectiveCostPct + "%";
-
-    // ── Comparison table ───────────────────────────────────────────────
-    const body = document.getElementById("compare-body");
-    body.innerHTML = "";
-
-    const rows = [
-      ["Official salary",      r.grossSalary,          r.reducedSalary,       null, true],
-      ["Income tax",          -r.without.tax,          -r.with.tax,            null, false],
-      ["National Insurance",  -r.without.ni,           -r.with.ni,             null, false],
-      ...(r.savings.studentLoan > 0
-        ? [["Student loan",   -r.without.studentLoan,  -r.with.studentLoan,    null, false]]
-        : []),
-      ["Take-home pay",        r.without.takeHome,      r.with.takeHome,       null, true],
-      ["Into pension",        -r.sacrificeAmount,       -r.sacrificeAmount,     null, false],
-      ["Pension pot total",    r.sacrificeAmount + (r.employerAmount * 0),
-                               r.pension.annualContribution,                   null, true],
-    ];
-
-    rows.forEach(([label, wout, wit, , highlight]) => {
-      const diff  = wit - wout;
-      const tr    = document.createElement("tr");
-      if (highlight) tr.classList.add("highlight");
-
-      const diffStr = diff === 0 ? "—"
-        : (diff > 0 ? "+" : "") + fmtGBP(diff);
-      const diffClass = diff > 0 ? "more" : diff < 0 ? "less" : "";
-
-      tr.innerHTML = `
-        <td>${label}</td>
-        <td>${fmtGBP(Math.abs(wout))}</td>
-        <td>${fmtGBP(Math.abs(wit))}</td>
-        <td class="${diffClass}">${diffStr}</td>
-      `;
-      body.appendChild(tr);
-    });
-
-    // Saving row
-    const savingRow = document.createElement("tr");
-    savingRow.classList.add("saving-row");
-    savingRow.innerHTML = `
-      <td colspan="3"><strong>Annual saving through salary sacrifice</strong></td>
-      <td><strong>${fmtGBP(r.savings.total)}</strong></td>
-    `;
-    body.appendChild(savingRow);
-
-    // ── Insight ────────────────────────────────────────────────────────
-    let insight = "";
-    if (r.marginalRate === "higher") {
-      insight = `<strong>Higher rate taxpayer benefit:</strong> Because your salary puts you in the 40% tax band, salary sacrifice is particularly powerful for you — you save 40p income tax and 2p NI for every £1 contributed. That's a 42% effective saving rate.`;
-    } else if (r.marginalRate === "additional") {
-      insight = `<strong>Additional rate taxpayer:</strong> At 45% income tax, salary sacrifice gives you maximum benefit. Every £1 sacrificed costs your take-home just ${fmtPct(r.effectiveCostPct)}.`;
-    } else {
-      insight = `<strong>Basic rate taxpayer:</strong> You save 20p income tax and 8p NI per £1 contributed — a 28% effective saving. If your salary grows above £50,270, that saving increases to 42%.`;
-    }
-
-    if (r.savings.studentLoan > 0) {
-      insight += ` Your student loan repayments also reduce by <strong>${fmtGBP(r.savings.studentLoan)}</strong> per year — an often-overlooked bonus.`;
-    }
-
-    document.getElementById("insight-box").innerHTML = insight;
-
-    // ── Employer NI ────────────────────────────────────────────────────
-    if (r.savings.employerNi > 0) {
-      document.getElementById("employer-ni-note").style.display = "block";
-      document.getElementById("employer-ni-amount").textContent =
-        `${fmtGBP(r.savings.employerNi)}/year`;
-    } else {
-      document.getElementById("employer-ni-note").style.display = "none";
-    }
   }
 </script>
+
+<!-- Calculator logic (unchanged from original) -->
+<script src="js/calculator.js"></script>
 
 </body>
 </html>
