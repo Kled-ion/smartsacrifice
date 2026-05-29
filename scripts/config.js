@@ -377,7 +377,7 @@ const SEASONAL_CALENDAR = [
     months:      [4],              // April
     weeksOut:    1,
     title:       "New Tax Year — Update All Labels",
-    description: "Review all 2026/27 labels. Update tax year references across both sites.",
+    description: "Run TAX-YEAR-ROLLOVER.md — the exact checklist of every rate and file to update. ~15 mins.",
     site:        "both",
     priority:    "HIGH",
   },
@@ -385,7 +385,7 @@ const SEASONAL_CALENDAR = [
     months:      [10],             // October
     weeksOut:    2,
     title:       "Autumn Budget Watch",
-    description: "Monitor for stamp duty, pension, or SDLT changes in Budget. Prepare update articles.",
+    description: "Budget may change SDLT/pension/NI rates. If so, follow TAX-YEAR-ROLLOVER.md to update both sites.",
     site:        "both",
     priority:    "HIGH",
   },
