@@ -160,6 +160,38 @@ async function run() {
     }
   }
 
+  // ── Pass 1c-ii: Employer NI rate & threshold ─────────────────────────────
+  console.log("\n── Pass 1c-ii: Employer NI ──\n");
+
+  if (TAX_RATES.sources.employerNI && TAX_RATES.verificationPhrases.employerNI) {
+    const empNiHtml = await getPage(TAX_RATES.sources.employerNI);
+
+    for (const check of TAX_RATES.verificationPhrases.employerNI) {
+      totalChecks++;
+      const isPct = check.phrase.includes("%");
+      const result = isPct
+        ? extractPercentage(empNiHtml, check.phrase)
+        : extractMonetaryValue(empNiHtml, check.phrase);
+
+      if (!result.found) {
+        rawFindings.push(createFinding({
+          agent:       AGENT_NAME,
+          name:        check.label,
+          type:        "missing_phrase",
+          description: `${check.label} (${check.phrase}) not found on HMRC employer rates page`,
+          severity:    check.severity,
+          url:         TAX_RATES.sources.employerNI,
+          phrase:      check.phrase,
+          action:      `Manually verify ${check.phrase} at ${TAX_RATES.sources.employerNI}`,
+        }));
+        printFlag(check.label);
+      } else {
+        passed.push(check.label);
+        printPass(check.label, `${check.phrase} confirmed`);
+      }
+    }
+  }
+
   // ── Pass 1d: SDLT Rates ──────────────────────────────────────────────────
   console.log("\n── Pass 1d: SDLT rates ──\n");
 

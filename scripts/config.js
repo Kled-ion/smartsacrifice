@@ -152,11 +152,11 @@ const TAX_RATES = {
   niUpperEarningsLimit: 50_270,   // Higher rate above this
   niMainRate:            0.08,    // 8% between thresholds
   niHigherRate:          0.02,    // 2% above upper limit
-  employerNiRate:        0.138,   // 13.8% employer contribution
-  employerNiThreshold:   9_100,   // Employer NI secondary threshold
+  employerNiRate:        0.15,    // 15% employer contribution (raised from 13.8% Apr 2025)
+  employerNiThreshold:   5_000,   // Employer NI secondary threshold (reduced from £9,100 Apr 2025)
 
   // Student Loans
-  plan2Threshold:       29_385,   // Plan 2 — 9% above this
+  plan2Threshold:       29_385,   // Plan 2 — 9% above this (2026/27)
   plan5Threshold:       25_000,   // Plan 5 — 9% above this
   studentLoanRate:       0.09,    // 9% repayment rate
 
@@ -165,24 +165,29 @@ const TAX_RATES = {
     incomeTax:         "https://www.gov.uk/income-tax-rates",
     nationalInsurance: "https://www.gov.uk/national-insurance/how-much-you-pay",
     studentLoans:      "https://www.gov.uk/repaying-your-student-loan",
+    employerNI:        "https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027",
   },
 
   // Phrases that must appear on each source page to confirm rates unchanged
   // If any disappear, rates may have changed — flag for human verification
   verificationPhrases: {
     incomeTax: [
-      { phrase: "£242",    label: "Personal Allowance",    severity: "RED"   },
+      { phrase: "£12,570",    label: "Personal Allowance",    severity: "RED"   },
       { phrase: "£50,270",    label: "Basic Rate Limit",      severity: "RED"   },
       { phrase: "£125,140",   label: "Higher Rate Limit",     severity: "RED"   },
       { phrase: "20%",        label: "Basic Rate",            severity: "RED"   },
       { phrase: "40%",        label: "Higher Rate",           severity: "RED"   },
     ],
     nationalInsurance: [
-      { phrase: "£242",       label: "NI Primary Threshold",  severity: "RED"   },
+      { phrase: "£12,570",    label: "NI Primary Threshold",  severity: "RED"   },
       { phrase: "8%",         label: "NI Main Rate",          severity: "RED"   },
     ],
     studentLoans: [
       { phrase: "£29,385",    label: "Plan 2 Threshold",      severity: "AMBER" },
+    ],
+    employerNI: [
+      { phrase: "15%",        label: "Employer NI Rate",      severity: "AMBER" },
+      { phrase: "5,000",      label: "Employer NI Threshold",  severity: "AMBER" },
     ],
   },
 };

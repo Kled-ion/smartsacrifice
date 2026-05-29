@@ -149,6 +149,54 @@
       .section-title { font-size: 1.6rem; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does the typical person save through salary sacrifice?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Basic rate taxpayers save approximately 28p for every £1 contributed (20p income tax plus 8p National Insurance). Someone earning £45,000 contributing 5% saves around £630 per year. Higher rate taxpayers save approximately 42p per £1."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is salary sacrifice better than a personal pension?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most employees, yes. A personal pension gets income tax relief but you still paid National Insurance on the money. Salary sacrifice avoids both income tax and NI, making it more efficient in nearly every case, unless it would take your pay below the National Minimum Wage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does salary sacrifice affect my student loan repayments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Student loan repayments are based on your reduced salary after sacrifice. For Plan 2 loans you repay 9% of earnings above £29,385 in 2026/27. Sacrificing £3,000 reduces your annual repayment by £270."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What about the employer's National Insurance saving on salary sacrifice?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your employer saves National Insurance at 15% of the sacrificed amount (raised from 13.8% in April 2025). On a £2,250 sacrifice that is about £338. Some employers pass this saving back as additional pension contribution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does salary sacrifice work in Scotland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Scotland has six income tax bands from 19% to 48%. Salary sacrifice is especially valuable for Scottish higher-rate taxpayers who pay 42% income tax on earnings above £43,663 in 2026/27."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -164,7 +212,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge">✓ 2026/27 HMRC Rates · England, Wales & N. Ireland</div>
+      <div class="hero-badge">✓ 2026/27 HMRC Rates · All UK regions</div>
       <h1>See exactly how much you <span>save</span> through salary sacrifice</h1>
       <p class="hero-sub">Most employees with a workplace pension are leaving hundreds of pounds of tax savings untouched every year. See your number in 30 seconds.</p>
       <div class="hero-examples">
@@ -173,7 +221,7 @@
           <div class="hero-example-label">Typical saving — £45k salary, 5% contribution, basic rate taxpayer</div>
         </div>
         <div class="hero-example">
-          <div class="hero-example-num">£945/yr</div>
+          <div class="hero-example-num">£833/yr</div>
           <div class="hero-example-label">Typical saving — £45k salary, 5% contribution, with Plan 2 student loan</div>
         </div>
       </div>
@@ -182,7 +230,7 @@
     <div class="calc-card">
       <div class="calc-card-head">
         <h2>Salary Sacrifice Calculator</h2>
-        <p>England, Wales & Northern Ireland · 2026/27 tax year</p>
+        <p>All UK regions including Scotland · 2026/27 tax year</p>
       </div>
       <div class="calc-body">
         <div class="form-group">
@@ -200,6 +248,14 @@
             <input class="form-slider" type="range" id="contribution" min="1" max="50" value="5" />
             <span class="slider-val" id="contributionDisplay">5%</span>
           </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="region">Where do you live?</label>
+          <div class="form-hint">Scotland has different income tax rates</div>
+          <select class="form-select" id="region">
+            <option value="ruk">England, Wales or Northern Ireland</option>
+            <option value="scotland">Scotland</option>
+          </select>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -254,8 +310,8 @@
           </div>
         </div>
 
-        <div class="scotland-note">
-          ⚠️ <span><strong>Scotland:</strong> Scottish income tax rates differ — this calculator uses England, Wales & Northern Ireland rates only. Scottish taxpayers should verify their personal saving using HMRC's Scottish income tax guidance.</span>
+        <div class="scotland-note" style="background:rgba(0,196,140,0.08);border-color:rgba(0,196,140,0.25);color:#065f46">
+          ✓ <span><strong>Scotland supported:</strong> Select your region above. Scottish income tax has six bands (19%–48%) and salary sacrifice can be especially valuable for Scottish higher-rate taxpayers, who pay 42% above £43,663.</span>
         </div>
       </div>
     </div>
@@ -350,7 +406,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">What about the employer's National Insurance saving? <span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">When you salary sacrifice, your employer also saves National Insurance — currently 13.8% of the sacrificed amount. On a £2,250 sacrifice, that's £310 the employer keeps. Some employers pass this saving back to employees as an additional pension contribution, which is an excellent deal for both parties. It costs the employer nothing extra and meaningfully boosts your pension. Ask HR whether your employer operates such a scheme — many do, but won't advertise it.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">When you salary sacrifice, your employer also saves National Insurance — currently 15% of the sacrificed amount (raised from 13.8% in April 2025). On a £2,250 sacrifice, that's about £338 the employer keeps. Some employers pass this saving back to employees as an additional pension contribution, which is an excellent deal for both parties. It costs the employer nothing extra and meaningfully boosts your pension. Ask HR whether your employer operates such a scheme — many do, but won't advertise it.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Is this tool regulated financial advice? <span class="faq-icon">+</span></button>
