@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Salary Sacrifice Calculator 2026/27 — See Exactly What You Save</title>
-  <meta name="description" content="Free UK salary sacrifice pension calculator. Enter your salary and see exactly how much you save on income tax, National Insurance, and student loan repayments. Updated for 2026/27." />
+  <meta name="description" content="Free salary sacrifice calculator with full Scottish tax bands. See exactly what you save on income tax, National Insurance and student loan across the UK. Updated for 2026/27." />
   <link rel="canonical" href="https://www.smartsacrifice.co.uk/" />
   <meta property="og:title" content="Salary Sacrifice Calculator — See Exactly What You Save" />
   <meta property="og:description" content="Free UK calculator. Enter your salary, see your tax saving instantly." />
@@ -116,6 +116,16 @@
     .partner-cta { display: inline-block; background: var(--navy); color: var(--white); padding: 9px 18px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background 0.2s; align-self: flex-start; }
     .partner-cta:hover { background: var(--navy-light); }
     .partner-label { font-size: 0.7rem; color: var(--grey-400); margin-top: 10px; }
+    .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .why-card { background: var(--off-white); border: 1px solid var(--grey-200); border-radius: 16px; padding: 24px; }
+    .why-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .why-card h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .why-card p { font-size: 0.86rem; color: var(--grey-600); line-height: 1.55; }
+    .why-badge { display: inline-block; font-size: 0.68rem; font-weight: 800; color: var(--green-dark); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 12px; }
+    .notice-2029 { background: var(--amber-bg); border: 1px solid var(--amber-border); border-left: 4px solid var(--amber); border-radius: 12px; padding: 24px 28px; max-width: 760px; margin: 0 auto; }
+    .notice-2029 h3 { font-family: var(--font-head); font-size: 1.1rem; color: var(--navy); margin-bottom: 10px; }
+    .notice-2029 p { font-size: 0.9rem; color: var(--grey-800); line-height: 1.65; margin-bottom: 10px; }
+    .notice-2029 p:last-child { margin-bottom: 0; }
     .fca-note { margin-top: 24px; text-align: center; font-size: 0.78rem; color: var(--grey-400); padding: 14px; background: var(--white); border: 1px solid var(--grey-200); border-radius: 10px; }
 
     .faq-list { display: flex; flex-direction: column; }
@@ -140,6 +150,7 @@
 
     @media (max-width: 768px) {
       .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
       .hero h1 { font-size: 1.9rem; }
       .steps { grid-template-columns: 1fr; }
       .partners-grid { grid-template-columns: 1fr; }
@@ -193,6 +204,14 @@
           "@type": "Answer",
           "text": "Yes. Scotland has six income tax bands from 19% to 48%. Salary sacrifice is especially valuable for Scottish higher-rate taxpayers who pay 42% income tax on earnings above £43,663 in 2026/27."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Is salary sacrifice changing in 2029?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. At the Autumn 2025 Budget, the government announced that from 6 April 2029, National Insurance relief on salary sacrifice pension contributions will be capped at £2,000 a year. The first £2,000 stays NI-free; above that, both employee and employer pay National Insurance on the excess. Until April 2029, salary sacrifice NI savings remain uncapped."
+        }
       }
     ]
   }
@@ -238,7 +257,7 @@
           <div class="form-hint">Before any deductions — from your contract or payslip</div>
           <div class="input-wrap">
             <span class="input-prefix">£</span>
-            <input class="form-input" type="number" id="salary" placeholder="45,000" min="0" max="500000" />
+            <input class="form-input" type="number" id="salary" placeholder="45,000" value="45000" min="0" max="500000" />
           </div>
         </div>
         <div class="form-group">
@@ -318,6 +337,40 @@
   </div>
 </section>
 
+<section class="section why-section">
+  <div class="section-inner">
+    <div class="section-label">Why this calculator</div>
+    <h2 class="section-title">The most accurate — and the most honest</h2>
+    <p class="section-sub">Most salary sacrifice calculators are run by pension providers selling their own product. We're not.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🗺️</div>
+        <h3>Works for Scotland</h3>
+        <p>Scottish income tax has six bands from 19% to 48%. We calculate every one. Most calculators — including major providers — don't support Scotland at all.</p>
+        <span class="why-badge">Others don't</span>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚖️</div>
+        <h3>Genuinely independent</h3>
+        <p>We're not owned by a pension provider. We show you the real number, then point you wherever suits you — not toward our own product.</p>
+        <span class="why-badge">No agenda</span>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <h3>Counts your student loan</h3>
+        <p>Salary sacrifice lowers the pay your student loan is calculated on. We factor in Plan 2 and Plan 5 — a saving most tools never show you.</p>
+        <span class="why-badge">Often missed</span>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📅</div>
+        <h3>Current for 2026/27</h3>
+        <p>Correct employer NI at 15%, today's thresholds, and ready for the April 2029 salary sacrifice changes. Checked against HMRC daily.</p>
+        <span class="why-badge">Always up to date</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="how-it-works">
   <div class="section-inner">
     <div class="section-label">How it works</div>
@@ -342,6 +395,17 @@
         <h3>Your pension grows, sheltered</h3>
         <p>The money sits in your pension, invested and growing — sheltered from income tax and NI. If you have a student loan, your repayments reduce too. Our calculator shows the full picture.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="notice-2029">
+      <h3>📌 Coming in April 2029: the £2,000 cap</h3>
+      <p>At the Autumn 2025 Budget, the government announced that from 6 April 2029, National Insurance relief on salary sacrifice pension contributions will be capped at <strong>£2,000 a year</strong>. Anything above that is treated as normal earnings for NI — so both you and your employer pay NI on the excess.</p>
+      <p>The first £2,000 stays NI-free. Sacrifice less than that and nothing changes for you. Sacrifice more, and the extra loses its NI saving from 2029.</p>
+      <p><strong>What it means right now:</strong> until April 2029, salary sacrifice NI savings stay uncapped. If you've been meaning to increase your contributions, the next three tax years are the most efficient window to do it.</p>
     </div>
   </div>
 </section>
@@ -410,7 +474,15 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">Is this tool regulated financial advice? <span class="faq-icon">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">No. This calculator provides general information based on published HMRC rates for 2026/27. It applies to England, Wales, and Northern Ireland only — Scottish income tax rates are different and this calculator does not reflect them. The figures are estimates based on standard calculations and your actual saving may differ depending on your employer's pension scheme rules and personal circumstances. Always speak to an Independent Financial Adviser before making significant pension decisions. You can find one at <a href="https://www.unbiased.co.uk" style="color:var(--navy)">unbiased.co.uk</a>.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. This calculator provides general information based on published HMRC rates for 2026/27. It covers England, Wales and Northern Ireland, and supports Scotland's separate income tax bands when you select Scotland as your region. The figures are estimates based on standard calculations and your actual saving may differ depending on your employer's pension scheme rules and personal circumstances. Always speak to an Independent Financial Adviser before making significant pension decisions. You can find one at <a href="https://www.unbiased.co.uk" style="color:var(--navy)">unbiased.co.uk</a>.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does salary sacrifice work in Scotland? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Scotland has six income tax bands from 19% to 48%, and this calculator supports all of them — select Scotland in the region dropdown above. Salary sacrifice is especially valuable for Scottish higher-rate taxpayers, who pay 42% income tax on earnings above £43,663 in 2026/27, plus the National Insurance saving on top. Most salary sacrifice calculators don't support Scottish rates at all.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is salary sacrifice changing in 2029? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. At the Autumn 2025 Budget, the government announced that from 6 April 2029, National Insurance relief on salary sacrifice pension contributions will be capped at £2,000 a year. Below that, nothing changes. Above £2,000, the excess is treated as normal earnings and both you and your employer pay NI on it. Until April 2029, salary sacrifice NI savings remain uncapped, so the next few tax years are the most efficient time to make larger contributions.</div></div>
       </div>
     </div>
   </div>
@@ -420,7 +492,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand">💰 Smart<span>Sacrifice</span></div>
-      <p class="footer-disc">General information only. Not regulated financial advice. Not FCA-authorised. Tax calculations are based on HMRC 2026/27 rates for England, Wales and Northern Ireland. Scottish income tax rates differ. Figures are estimates — your actual saving may vary. Always consult an Independent Financial Adviser before making pension decisions. Capital at risk with any investment.</p>
+      <p class="footer-disc">General information only. Not regulated financial advice. Not FCA-authorised. Tax calculations are based on HMRC 2026/27 rates, covering England, Wales and Northern Ireland plus Scotland's separate income tax bands. Figures are estimates — your actual saving may vary. Always consult an Independent Financial Adviser before making pension decisions. Capital at risk with any investment.</p>
       <div class="footer-links">
         <a href="about.html">About & Disclosure</a>
         <a href="privacy.html">Privacy Policy</a>
