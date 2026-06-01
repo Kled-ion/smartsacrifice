@@ -70,11 +70,13 @@
   const EMPLOYER_NI_THRESHOLD = 5000;
 
   // Student loans
-  const STUDENT_LOANS = {
-    none:  { threshold: Infinity, rate: 0 },
-    plan2: { threshold: 29385,    rate: 0.09 },
-    plan5: { threshold: 25000,    rate: 0.09 },
-  };
+ const STUDENT_LOANS = {
+  none:  { threshold: Infinity, rate: 0 },
+  plan1: { threshold: 26900, rate: 0.09 },
+  plan2: { threshold: 29385, rate: 0.09 },
+  plan4: { threshold: 33795, rate: 0.09 },
+  plan5: { threshold: 25000, rate: 0.09 },
+};
 
   // ──────────────────────────────────────────────────────────
   // CORE TAX FUNCTIONS
