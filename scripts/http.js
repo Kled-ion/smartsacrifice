@@ -46,6 +46,10 @@ function fetchUrl(url, options = {}) {
 
   return new Promise((resolve) => {
 
+    // Guard against malformed URLs (client.get throws synchronously on these,
+    // which would otherwise crash the entire agent run)
+    try { new URL(url); } catch { return resolve({ ok: false, status: 0, body: "", headers: {}, url, error: "Invalid URL" }); }
+
     if (redirectCount > THRESHOLDS.maxRedirects) {
       return resolve({ ok: false, status: 0, body: "", headers: {}, url, error: "Too many redirects" });
     }

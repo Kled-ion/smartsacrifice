@@ -58,6 +58,9 @@ function extractLinks(html, baseUrl, pageUrl) {
       fullUrl = base + href;
     }
 
+    // Skip malformed URLs that can't be parsed as valid links
+    try { new URL(fullUrl); } catch { continue; }
+
     // Deduplicate
     if (seen.has(fullUrl)) continue;
     seen.add(fullUrl);
