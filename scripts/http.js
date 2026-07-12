@@ -52,7 +52,7 @@ function fetchUrl(url, options = {}) {
 
     const client = url.startsWith("https") ? https : http;
 
-    const req = client.get(url, { timeout: timeoutMs }, (res) => {
+    const req = client.get(url, { timeout: timeoutMs, headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36 BeaconMonitor/1.0" } }, (res) => {
 
       // Follow redirects transparently
       if ([301, 302, 307, 308].includes(res.statusCode) && res.headers.location) {
