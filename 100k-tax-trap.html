@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The £100,000 Tax Trap: How Salary Sacrifice Beats the 60% Rate (2026/27)</title>
+  <meta name="description" content="Earning over £100k? You could face an effective 60% tax rate and lose childcare support worth thousands. Learn how salary sacrifice restores your personal allowance — with a free UK calculator." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.smartsacrifice.co.uk/100k-tax-trap.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the £100k tax trap?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Between £100,000 and £125,140 of income, your £12,570 personal allowance is withdrawn by £1 for every £2 you earn. That creates an effective 60% marginal tax rate (62% including employee National Insurance), even though no HMRC table shows a 60% band. In Scotland the effect is closer to 69.5%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does salary sacrifice help with the 60% tax trap?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The taper is based on your adjusted net income. Pension contributions made by salary sacrifice reduce that figure pound for pound, so sacrificing enough to bring your income back below £100,000 restores your full personal allowance. In the trap zone this means roughly 60% relief on the amount you sacrifice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I lose childcare support if I earn over £100,000?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If either parent's adjusted net income exceeds £100,000, the family loses tax-free childcare (up to £2,000 per child per year) and 30 hours of funded childcare for children aged 9 months to 4 years in England. For a family with two young children this can be worth close to £20,000 a year. Salary sacrifice that brings income below £100,000 restores eligibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much should I sacrifice to escape the trap?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enough to bring your adjusted net income down to £100,000. If you earn £110,000, sacrificing £10,000 does it. Keep within the pension annual allowance of £60,000 across all your pensions (this tapers for incomes above roughly £200,000), and remember salary sacrifice cannot take your pay below the National Minimum Wage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is salary sacrifice changing in 2029?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "From 6 April 2029, the National Insurance relief on salary-sacrificed pension contributions will be capped at £2,000 a year. The income tax relief that fixes the 60% trap is unaffected, so the strategy still works — only the additional NI saving is limited above £2,000."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1A3A5C; --navy-mid: #2A5A8C;
+      --green: #1A7A4A; --green-bg: #E8F5EE;
+      --amber: #D4820A; --amber-bg: #FEF3DC;
+      --cream: #F7F5F2; --cream-dark: #EDE9E3;
+      --white: #FFFFFF; --text: #1A1A2A;
+      --text-mid: #4A5568; --text-muted: #718096;
+      --border: #D4CAB8; --border-lt: #E8E2D8;
+      --radius: 10px; --radius-lg: 16px;
+      --font-head: 'Georgia', serif;
+      --font-body: 'Segoe UI', system-ui, sans-serif;
+      --max-w: 1100px;
+    }
+    body { font-family: var(--font-body); color: var(--text); background: var(--cream); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .nav { background: var(--navy); border-bottom: 3px solid var(--green); padding: 0 24px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .logo-tag { font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: var(--green); color: white; padding: 2px 7px; border-radius: 20px; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.8); text-decoration: none; }
+    .nav-links a:hover { color: white; }
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); color: white; padding: 48px 24px 44px; }
+    .hero-inner { max-width: var(--max-w); margin: 0 auto; }
+    .hero-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7DD3A8; margin-bottom: 14px; }
+    .hero h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: 12px; }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.78); max-width: 620px; }
+    .layout { display: grid; grid-template-columns: 1fr 300px; gap: 40px; max-width: var(--max-w); margin: 0 auto; padding: 48px 24px; }
+    .content h2 { font-family: var(--font-head); font-size: 1.4rem; color: var(--navy); margin: 36px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--cream-dark); }
+    .content h3 { font-family: var(--font-head); font-size: 1.1rem; color: var(--navy); margin: 24px 0 10px; }
+    .content p { margin-bottom: 16px; color: var(--text); line-height: 1.75; }
+    .content ul { margin: 0 0 16px 22px; color: var(--text); font-size: 0.95rem; }
+    .content li { margin-bottom: 8px; line-height: 1.6; }
+    .content strong { color: var(--navy); font-weight: 700; }
+    .lead { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 8px; }
+    .callout { border-radius: var(--radius); padding: 18px 22px; margin: 20px 0; font-size: 0.9rem; line-height: 1.55; }
+    .callout-info { background: rgba(26,58,92,0.06); border: 1px solid rgba(26,58,92,0.15); color: var(--navy); }
+    .callout-green { background: var(--green-bg); border: 1px solid #A8D8BE; color: #0F5A34; }
+    .callout-warning { background: var(--amber-bg); border: 1px solid #F5C96A; color: #7A4D00; }
+    .callout-title { font-weight: 700; margin-bottom: 6px; }
+    .cta-box { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); color: white; border-radius: var(--radius-lg); padding: 28px 26px; margin: 28px 0; text-align: center; }
+    .cta-box h3 { font-family: var(--font-head); color: white; font-size: 1.25rem; margin-bottom: 8px; }
+    .cta-box p { color: rgba(255,255,255,0.82); font-size: 0.95rem; margin-bottom: 18px; }
+    .cta-btn { display: inline-block; background: var(--green); color: white; font-weight: 700; font-size: 0.95rem; text-decoration: none; padding: 13px 30px; border-radius: 30px; }
+    .cta-btn:hover { background: #146138; }
+    .faq-q { font-family: var(--font-head); font-size: 1.05rem; color: var(--navy); margin: 22px 0 6px; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border-lt); border-radius: var(--radius-lg); padding: 22px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(26,58,92,0.06); }
+    .sidebar-card h4 { font-family: var(--font-head); font-size: 1rem; color: var(--navy); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border-lt); }
+    .sidebar-link { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border-lt); text-decoration: none; font-size: 0.875rem; color: var(--text-mid); }
+    .sidebar-link:last-child { border-bottom: none; }
+    .sidebar-link:hover { color: var(--navy); }
+    .sidebar-cta { background: var(--navy); border-radius: var(--radius-lg); padding: 22px; text-align: center; }
+    .sidebar-cta h4 { font-family: var(--font-head); color: white; font-size: 1.05rem; margin-bottom: 8px; }
+    .sidebar-cta p { color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-bottom: 14px; }
+    .sidebar-cta a { display: inline-block; background: var(--green); color: white; font-weight: 700; font-size: 0.85rem; text-decoration: none; padding: 10px 22px; border-radius: 24px; }
+    .footer { background: #0F2236; color: rgba(255,255,255,0.65); padding: 32px 24px; margin-top: 48px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-legal { font-size: 0.78rem; line-height: 1.6; max-width: 800px; }
+    .footer-legal strong { color: rgba(255,255,255,0.8); }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">💰 Smart Sacrifice <span class="logo-tag">Free Tool</span></a>
+    <ul class="nav-links">
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">Salary Sacrifice · High Earners · 2026/27</p>
+    <h1>The £100,000 Tax Trap</h1>
+    <p class="hero-sub">If you earn between £100,000 and £125,140, there's a tax rate you'll never see on an HMRC form — and it's 60%. For parents, it's far worse. Here's how salary sacrifice fixes it.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <article class="content">
+
+    <p class="lead">Most people know about the 20%, 40% and 45% income tax bands. Far fewer realise there's an effective <strong>60% band hidden between £100,000 and £125,140</strong> — and if you have young children, crossing £100,000 can cost you thousands more.</p>
+
+    <h2>What the £100k tax trap actually is</h2>
+    <p>The personal allowance — the £12,570 you can earn tax-free in 2026/27 — doesn't apply to everyone. Once your income passes £100,000, <strong>you lose £1 of it for every £2 you earn above that line</strong>. By £125,140 it has gone entirely.</p>
+    <p>That withdrawal is invisible but brutal. On every pound between £100,000 and £125,140 you pay 40% higher-rate tax <strong>plus</strong> an extra 20% from the disappearing allowance — an <strong>effective 60% rate</strong>, or <strong>62% once employee National Insurance is added</strong>. In Scotland it is closer to 69.5%. And because the £100,000 threshold has been frozen since 2010 and stays frozen until April 2031, more people are pulled in every year.</p>
+
+    <h2>For parents, it's not 60% — it's a cliff edge</h2>
+    <p>This is the part most high earners miss until it is too late. The £100,000 line is also the hard cut-off for two government childcare schemes:</p>
+    <ul>
+      <li><strong>Tax-free childcare</strong> — up to £2,000 per child, per year</li>
+      <li><strong>30 hours of funded childcare</strong> — for children aged 9 months to 4 years in England</li>
+    </ul>
+    <div class="callout callout-warning">
+      <div class="callout-title">⚠️ A £1 pay rise can cost you £20,000</div>
+      If <strong>either</strong> parent's adjusted net income is even £1 over £100,000, you lose both schemes entirely. For a family with two young children, that support is worth close to £20,000 a year. Earning £100,001 can genuinely leave you worse off than earning £99,999.
+    </div>
+
+    <h2>The fix: salary sacrifice</h2>
+    <p>Here is the lever. Both childcare schemes and the personal allowance taper are based on your <strong>adjusted net income</strong> — and pension contributions made by salary sacrifice reduce it, pound for pound. Sacrifice enough to bring your income back under £100,000 and you <strong>restore your full personal allowance and your childcare eligibility</strong>, while the money lands in your pension instead of vanishing in tax.</p>
+    <div class="callout callout-green">
+      <div class="callout-title">✅ Worked example — earning £110,000</div>
+      Sacrifice £10,000 into your pension and your adjusted net income drops to £100,000 — out of the trap. You save roughly <strong>£6,000</strong> in tax (60% of £10,000), so <strong>£10,000 in your pension costs you about £4,000</strong> of take-home pay. If you have young children, you also reclaim up to ~£20,000 of childcare support.
+    </div>
+
+    <h2>Before you do it — five things to check</h2>
+    <ul>
+      <li><strong>Annual allowance:</strong> you can normally pay up to £60,000 a year into pensions across all schemes. Above roughly £200,000 income this tapers down.</li>
+      <li><strong>Minimum wage:</strong> sacrifice cannot drop your pay below the National Minimum Wage (rarely an issue at these incomes).</li>
+      <li><strong>Mortgage and statutory pay:</strong> sacrifice lowers your <em>payslip</em> salary, which can affect mortgage affordability and statutory maternity/paternity pay — time it carefully if either is imminent.</li>
+      <li><strong>Self-assessment:</strong> once you earn over £100,000 you must file a self-assessment return, even on PAYE.</li>
+      <li><strong>The 2029 change:</strong> from April 2029 the National Insurance saving on salary-sacrificed pension contributions is capped at £2,000 a year. The income-tax relief — the part that fixes this trap — is unaffected.</li>
+    </ul>
+
+    <div class="cta-box">
+      <h3>See exactly how deep you are in the trap</h3>
+      <p>Enter your salary and see your effective rate, the amount to sacrifice to escape £100k, and what it costs your take-home pay.</p>
+      <a href="/" class="cta-btn">Open the free calculator →</a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <p class="faq-q">Does the 60% rate really apply to me?</p>
+    <p>If your adjusted net income falls between £100,000 and £125,140, yes — every pound in that band is taxed at an effective 60% (62% with employee NI). Below £100,000 or above £125,140 the effect disappears, which is exactly why bringing your income to £100,000 is so valuable.</p>
+    <p class="faq-q">Is this legal?</p>
+    <p>Completely. Salary sacrifice is an HMRC-recognised arrangement and reducing your adjusted net income through pension contributions is standard, legitimate planning — not avoidance.</p>
+    <p class="faq-q">What if my employer doesn't offer salary sacrifice?</p>
+    <p>Personal pension contributions and Gift Aid donations also reduce adjusted net income and can achieve the same personal-allowance result, though salary sacrifice is the most efficient because it saves National Insurance too. Ask your HR team whether a scheme is available.</p>
+
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-top:24px;">This is general information, not personal financial advice. Tax rules change and individual circumstances vary — consider speaking to an Independent Financial Adviser before making pension decisions. Capital is at risk with any investment.</p>
+
+  </article>
+
+  <aside>
+    <div class="sidebar-cta">
+      <h4>Are you in the trap?</h4>
+      <p>Check your effective rate and escape amount in seconds.</p>
+      <a href="/">Use the calculator →</a>
+    </div>
+    <div class="sidebar-card">
+      <h4>Quick links</h4>
+      <a href="/" class="sidebar-link"><span>💰 Salary sacrifice calculator</span><span>→</span></a>
+      <a href="/#faq" class="sidebar-link"><span>❓ FAQ</span><span>→</span></a>
+      <a href="about.html" class="sidebar-link"><span>ℹ️ About &amp; disclosure</span><span>→</span></a>
+    </div>
+    <div class="sidebar-card">
+      <h4>Official sources</h4>
+      <a href="https://www.gov.uk/income-tax-rates" target="_blank" rel="noopener" class="sidebar-link"><span>HMRC income tax rates</span><span>↗</span></a>
+      <a href="https://www.gov.uk/tax-free-childcare" target="_blank" rel="noopener" class="sidebar-link"><span>Tax-free childcare</span><span>↗</span></a>
+      <a href="https://www.unbiased.co.uk" target="_blank" rel="noopener" class="sidebar-link"><span>Find an IFA</span><span>↗</span></a>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-legal">
+      <strong>Disclaimer:</strong> Smart Sacrifice provides general information only and does not constitute regulated financial advice. We are not FCA-authorised. Always consult an Independent Financial Adviser before making pension decisions. Capital at risk with any investment. Some links are affiliate links — we may earn a commission at no cost to you.
+      <br><br>© 2026 Smart Sacrifice · smartsacrifice.co.uk · <a href="about.html" style="color:rgba(255,255,255,0.6)">About</a> · <a href="privacy.html" style="color:rgba(255,255,255,0.6)">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
